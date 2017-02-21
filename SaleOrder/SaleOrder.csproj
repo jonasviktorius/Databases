@@ -33,8 +33,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,11 +54,192 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CH04_Employee_Information.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH05_Adjusted_Wholesale_Prices.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH05_Orders_By_Customer_And_Date.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH05_Shipping_Days_Analysis.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH06_Orders_for_Customer_1001.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH08_Orders_With_Products.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH09_All_Products_Any_Order_Dates.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH09_Customers_No_Helmets.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH09_Customers_No_Rep_Same_Zip.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH09_Products_Never_Ordered.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH10_Customer_Helmets_Vendor_Helmets.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH11_Customers_Clothing_OR_Accessories.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH11_Customers_Clothing_OR_Accessories_EXISTS.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH11_Customers_Clothing_OR_Accessories_IN.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH11_Customers_Ordered_Bikes_EXISTS.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH11_Customers_Ordered_Bikes_IN.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH11_Customers_Ordered_Bikes_JOIN.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH11_Products_Last_Date.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH12_Quoted_Price_vs_Average_Retail_Price.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Customers_Bikes_And_Helmets_Same_Order.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Customers_No_Orders_JOIN.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Customers_No_Orders_NOT_IN.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Customer_Bikes_No_Helmets.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Cust_Bikes_And_Helmets_EXISTS.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Cust_Bikes_No_Helmets_EXISTS.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Orders_Bikes_No_Helmet_EXISTS.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH18_Vendors_Accessories_CarRacks_Clothing.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH19_Customers_Ordered_FirstWeek_Dec2012.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH19_Customers_State_Names.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH19_Employee_Age_Feb152014.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH19_Products_And_SalesQuality.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH19_Products_Ordered_Dec_2012.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH20_Customer_All_Products_PurchasedStatus.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH20_Customer_Catalog.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH20_Employees_Same_State_Customers.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH20_Product_Price_Ranges.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH20_Product_Sales_All_Months_2012_2013.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH20_Product_Sales_ByMonth.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CH20_Product_Stock_Labels.cs">
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="EntityView.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityView.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityView.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityView.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityView.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityView.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Employee.cs" />
+    <Compile Include="Model\Entity.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\Order_Details.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="Model\Product_Vendors.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Vendor.cs" />
+    <Compile Include="Model\ztblMonth.cs" />
+    <Compile Include="Model\ztblPriceRanx.cs" />
+    <Compile Include="Model\ztblPurchaseCoupon.cs" />
+    <Compile Include="Model\ztblSeqNumber.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="EntityView.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityView.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityView.edmx.diagram">
+      <DependentUpon>EntityView.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityView.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityView.edmx</DependentUpon>
+      <LastGenOutput>EntityView.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityView.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityView.edmx</DependentUpon>
+      <LastGenOutput>EntityView.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

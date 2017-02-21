@@ -1,0 +1,1982 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SalesOrderModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH04_Customer_States' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH04_Customer_States">
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH04_Employee_Information' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH04_Employee_Information">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="EmpFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="EmpCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="EmpState" Type="nvarchar" MaxLength="2" />
+          <Property Name="EmpZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="EmpAreaCode" Type="smallint" />
+          <Property Name="EmpPhoneNumber" Type="nvarchar" MaxLength="8" />
+          <Property Name="EmpBirthDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH04_Product_Price_List' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH04_Product_Price_List">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RetailPrice" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH04_Vendor_Locations' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH04_Vendor_Locations">
+          <Property Name="VendCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH04_Vendor_Names' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH04_Vendor_Names">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH05_Adjusted_Wholesale_Prices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH05_Adjusted_Wholesale_Prices">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="WholesalePrice" Type="money" />
+          <Property Name="NewPrice" Type="numeric" Precision="23" Scale="6" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH05_Orders_By_Customer_And_Date' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH05_Orders_By_Customer_And_Date">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH05_Product_Inventory_Value' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH05_Product_Inventory_Value">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="InventoryValue" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH05_Shipping_Days_Analysis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH05_Shipping_Days_Analysis">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="ShipDate" Type="date" />
+          <Property Name="DaysElapsed" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH05_Vendor_Addresses' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH05_Vendor_Addresses">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="VendCompleteAddress" Type="nvarchar" MaxLength="98" />
+          <Property Name="VendPhoneNumber" Type="nvarchar" MaxLength="15" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH06_Ballard_Bellevue_Redmond_Vendors' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH06_Ballard_Bellevue_Redmond_Vendors">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="VendCity" Type="nvarchar" MaxLength="30" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH06_Orders_for_Customer_1001' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH06_Orders_for_Customer_1001">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH06_Products_Priced_Over_125' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH06_Products_Priced_Over_125">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RetailPrice" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH06_Products_That_Begin_With_DOG' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH06_Products_That_Begin_With_DOG">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH06_Vendors_With_No_Website' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH06_Vendors_With_No_Website">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="VendWebPage" Type="ntext" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Customers_And_OrderDates' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Customers_And_OrderDates">
+          <Property Name="CustomerFullName" Type="nvarchar" MaxLength="51" />
+          <Property Name="OrderDate" Type="date" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Customers_Both_Bikes_And_Helmets' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Customers_Both_Bikes_And_Helmets">
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Customers_Employees_Same_City' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Customers_Employees_Same_City">
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpCity" Type="nvarchar" MaxLength="30" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Customers_Employees_Same_LastName' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Customers_Employees_Same_LastName">
+          <Property Name="CustFullName" Type="nvarchar" MaxLength="51" />
+          <Property Name="EmpFullName" Type="nvarchar" MaxLength="51" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Customers_Who_Ordered_Helmets' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Customers_Who_Ordered_Helmets">
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Employees_And_Customers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Employees_And_Customers">
+          <Property Name="EmpFullName" Type="nvarchar" MaxLength="51" />
+          <Property Name="CustFullName" Type="nvarchar" MaxLength="51" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH08_Orders_With_Products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH08_Orders_With_Products">
+          <Key>
+            <PropertyRef Name="OrderNo" />
+            <PropertyRef Name="ProductNo" />
+          </Key>
+          <Property Name="OrderNo" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="ProductNo" Type="int" Nullable="false" />
+          <Property Name="Product" Type="nvarchar" MaxLength="50" />
+          <Property Name="Price" Type="money" />
+          <Property Name="Qty" Type="smallint" />
+          <Property Name="AmountOwed" Type="money" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Products_And_Categories' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Products_And_Categories">
+          <Property Name="CategoryDescription" Type="nvarchar" MaxLength="75" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH08_Vendors_And_Products_Less_Than_100' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH08_Vendors_And_Products_Less_Than_100">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="WholesalePrice" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH09_All_Customers_And_Any_Bike_Orders' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH09_All_Customers_And_Any_Bike_Orders">
+          <Property Name="CustFullName" Type="nvarchar" MaxLength="51" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="QuantityOrdered" Type="smallint" />
+          <Property Name="QuotedPrice" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH09_All_Products_Any_Order_Dates' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH09_All_Products_Any_Order_Dates">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="OrderDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH09_Customers_No_Helmets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH09_Customers_No_Helmets">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH09_Customers_No_Rep_Same_Zip' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH09_Customers_No_Rep_Same_Zip">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustZipCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH09_Products_Never_Ordered' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH09_Products_Never_Ordered">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH10_Customer_Helmets_Vendor_Helmets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH10_Customer_Helmets_Vendor_Helmets">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="FullName" Type="nvarchar" MaxLength="52" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RowID" Type="varchar" MaxLength="8" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets">
+          <Key>
+            <PropertyRef Name="ProdType" />
+          </Key>
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="ProdType" Type="varchar" MaxLength="6" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH10_Customers_Bikes_Or_Helmets' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH10_Customers_Bikes_Or_Helmets">
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH10_Customers_UNION_ALL_Employees' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH10_Customers_UNION_ALL_Employees">
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+          <Property Name="CustZipCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH11_Customers_Clothing_OR_Accessories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH11_Customers_Clothing_OR_Accessories">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH11_Customers_Clothing_OR_Accessories_EXISTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH11_Customers_Clothing_OR_Accessories_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH11_Customers_Clothing_OR_Accessories_IN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH11_Customers_Clothing_OR_Accessories_IN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH11_Customers_Ordered_Bikes_EXISTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH11_Customers_Ordered_Bikes_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH11_Customers_Ordered_Bikes_IN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH11_Customers_Ordered_Bikes_IN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH11_Customers_Ordered_Bikes_JOIN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH11_Customers_Ordered_Bikes_JOIN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH11_Products_Last_Date' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH11_Products_Last_Date">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastOrder" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH11_Products_Not_Ordered' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH11_Products_Not_Ordered">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH11_Vendors_Product_Count' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH11_Vendors_Product_Count">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="VendProductCount" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH12_Average_Price_Of_A_Mountain_Bike' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH12_Average_Price_Of_A_Mountain_Bike">
+          <Property Name="AverageCost" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.Ch12_Most_Recent_Order_Date' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Ch12_Most_Recent_Order_Date">
+          <Property Name="MostRecentOrderDate" Type="date" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH12_Number_Of_California_Customers' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH12_Number_Of_California_Customers">
+          <Property Name="NumberOfCACustomers" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH12_Quoted_Price_vs_Average_Retail_Price' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH12_Quoted_Price_vs_Average_Retail_Price">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH12_Total_Amount_For_Order_Number_8' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH12_Total_Amount_For_Order_Number_8">
+          <Property Name="TotalOrderAmount" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH13_Order_Totals_By_Customer_And_Date' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH13_Order_Totals_By_Customer_And_Date">
+          <Property Name="CustFullName" Type="nvarchar" MaxLength="51" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="TotalCost" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH13_Sales_By_Product' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH13_Sales_By_Product">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalSales" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH13_Vendor_Avg_Delivery' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH13_Vendor_Avg_Delivery">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="AvgDelivery" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH13_Vendors_Product_Count_Group' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH13_Vendors_Product_Count_Group">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CountOfProductNumber" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH13_Vendors_Product_Count_Subquery' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH13_Vendors_Product_Count_Subquery">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="VendProductCount" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH14_Order_Totals_By_Customer_And_Date_GT1000' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH14_Order_Totals_By_Customer_And_Date_GT1000">
+          <Property Name="CustFullName" Type="nvarchar" MaxLength="51" />
+          <Property Name="OrderDate" Type="date" />
+          <Property Name="TotalCost" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH14_Sales_By_Product_GT_Category_Avg' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH14_Sales_By_Product_GT_Category_Avg">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="TotalSales" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH14_Single_Item_Order_Count' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH14_Single_Item_Order_Count">
+          <Property Name="SingleItemOrderCount" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH14_Vendor_Avg_Delivery_GT_Overall_Avg' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH14_Vendor_Avg_Delivery_GT_Overall_Avg">
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+          <Property Name="AvgDelivery" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH14_West_Coast_Big_Order_States' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH14_West_Coast_Big_Order_States">
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+          <Property Name="SumOfOrders" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Cust_Bikes_And_Helmets_EXISTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Cust_Bikes_And_Helmets_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Cust_Bikes_No_Helmets_EXISTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Cust_Bikes_No_Helmets_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Customer_Bikes_No_Helmets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Customer_Bikes_No_Helmets">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Customers_Bikes_And_Helmets_Same_Order' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Customers_Bikes_And_Helmets_Same_Order">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Customers_No_Orders_JOIN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Customers_No_Orders_JOIN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Customers_No_Orders_NOT_IN' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Customers_No_Orders_NOT_IN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Orders_Bikes_No_Helmet_EXISTS' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Orders_Bikes_No_Helmet_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="OrderNumber" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH18_Vendors_Accessories_CarRacks_Clothing' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH18_Vendors_Accessories_CarRacks_Clothing">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="int" Nullable="false" />
+          <Property Name="VendName" Type="nvarchar" MaxLength="25" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH19_Customers_Ordered_FirstWeek_Dec2012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH19_Customers_Ordered_FirstWeek_Dec2012">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="OrderedFirstWeekDec2012" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="OrderedFirstWeekDec2012" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH19_Customers_State_Names' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH19_Customers_State_Names">
+          <Key>
+            <PropertyRef Name="CustStateName" />
+          </Key>
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStateName" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH19_Employee_Age_Feb152014' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH19_Employee_Age_Feb152014">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="EmpFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpAge" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH19_Products_And_SalesQuality' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH19_Products_And_SalesQuality">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+            <PropertyRef Name="SalesQuality" />
+          </Key>
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesQuality" Type="varchar" MaxLength="9" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH19_Products_Ordered_Dec_2012' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH19_Products_Ordered_Dec_2012">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+            <PropertyRef Name="ProductOrdered" />
+          </Key>
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductOrdered" Type="varchar" MaxLength="11" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH20_Customer_All_Products_PurchasedStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH20_Customer_All_Products_PurchasedStatus">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ProductNumber" />
+            <PropertyRef Name="ProductOrdered" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+          <Property Name="CustZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="CategoryDescription" Type="nvarchar" MaxLength="75" />
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RetailPrice" Type="money" />
+          <Property Name="ProductOrdered" Type="varchar" MaxLength="19" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH20_Customer_Catalog' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH20_Customer_Catalog">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="int" Nullable="false" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+          <Property Name="CustZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="CategoryDescription" Type="nvarchar" MaxLength="75" />
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RetailPrice" Type="money" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH20_Customer_Dec_2012_Order_Coupons' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH20_Customer_Dec_2012_Order_Coupons">
+          <Property Name="NumCoupons" Type="smallint" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+          <Property Name="CustZipCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Purchase" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH20_Customer_Discount_Coupons_Print' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH20_Customer_Discount_Coupons_Print">
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreetAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+          <Property Name="CustZipCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH20_Customer_Mailing_Skip_5' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH20_Customer_Mailing_Skip_5">
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustStreenAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustCity" Type="nvarchar" MaxLength="30" />
+          <Property Name="CustState" Type="nvarchar" MaxLength="2" />
+          <Property Name="CustZipCode" Type="nvarchar" MaxLength="10" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH20_Employees_Same_State_Customers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH20_Employees_Same_State_Customers">
+          <Key>
+            <PropertyRef Name="CustStatus" />
+          </Key>
+          <Property Name="EmpFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="EmpLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustFirstName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustLastName" Type="nvarchar" MaxLength="25" />
+          <Property Name="CustAreaCode" Type="smallint" />
+          <Property Name="CustPhoneNumber" Type="nvarchar" MaxLength="8" />
+          <Property Name="CustStatus" Type="varchar" MaxLength="17" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH20_Product_Price_Ranges' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH20_Product_Price_Ranges">
+          <Key>
+            <PropertyRef Name="PriceCategory" />
+          </Key>
+          <Property Name="PriceCategory" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="RetailPrice" Type="money" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH20_Product_Sales_All_Months_2012_2013' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH20_Product_Sales_All_Months_2012_2013">
+          <Key>
+            <PropertyRef Name="MonthYear" />
+          </Key>
+          <Property Name="MonthYear" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sales" Type="money" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH20_Product_Sales_ByMonth' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH20_Product_Sales_ByMonth">
+          <Key>
+            <PropertyRef Name="MonthYear" />
+          </Key>
+          <Property Name="MonthYear" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sales" Type="money" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'SalesOrder.dbo.CH20_Product_Sales_Month_Pivot' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="CH20_Product_Sales_Month_Pivot">
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+          <Property Name="January" Type="money" />
+          <Property Name="February" Type="money" />
+          <Property Name="March" Type="money" />
+          <Property Name="April" Type="money" />
+          <Property Name="May" Type="money" />
+          <Property Name="June" Type="money" />
+          <Property Name="July" Type="money" />
+          <Property Name="August" Type="money" />
+          <Property Name="September" Type="money" />
+          <Property Name="October" Type="money" />
+          <Property Name="November" Type="money" />
+          <Property Name="December" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SalesOrder.dbo.CH20_Product_Stock_Labels' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="CH20_Product_Stock_Labels">
+          <Key>
+            <PropertyRef Name="Sequence" />
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="Sequence" Type="int" Nullable="false" />
+          <Property Name="ProductNumber" Type="int" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="SalesOrderModelStoreContainer">
+          <EntitySet Name="CH04_Employee_Information" EntityType="Self.CH04_Employee_Information" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH04_Employee_Information].[EmployeeID] AS [EmployeeID], 
+    [CH04_Employee_Information].[EmpFirstName] AS [EmpFirstName], 
+    [CH04_Employee_Information].[EmpLastName] AS [EmpLastName], 
+    [CH04_Employee_Information].[EmpStreetAddress] AS [EmpStreetAddress], 
+    [CH04_Employee_Information].[EmpCity] AS [EmpCity], 
+    [CH04_Employee_Information].[EmpState] AS [EmpState], 
+    [CH04_Employee_Information].[EmpZipCode] AS [EmpZipCode], 
+    [CH04_Employee_Information].[EmpAreaCode] AS [EmpAreaCode], 
+    [CH04_Employee_Information].[EmpPhoneNumber] AS [EmpPhoneNumber], 
+    [CH04_Employee_Information].[EmpBirthDate] AS [EmpBirthDate]
+    FROM [dbo].[CH04_Employee_Information] AS [CH04_Employee_Information]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH05_Adjusted_Wholesale_Prices" EntityType="Self.CH05_Adjusted_Wholesale_Prices" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH05_Adjusted_Wholesale_Prices].[ProductNumber] AS [ProductNumber], 
+    [CH05_Adjusted_Wholesale_Prices].[WholesalePrice] AS [WholesalePrice], 
+    [CH05_Adjusted_Wholesale_Prices].[NewPrice] AS [NewPrice]
+    FROM [dbo].[CH05_Adjusted_Wholesale_Prices] AS [CH05_Adjusted_Wholesale_Prices]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH05_Orders_By_Customer_And_Date" EntityType="Self.CH05_Orders_By_Customer_And_Date" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH05_Orders_By_Customer_And_Date].[CustomerID] AS [CustomerID], 
+    [CH05_Orders_By_Customer_And_Date].[OrderDate] AS [OrderDate], 
+    [CH05_Orders_By_Customer_And_Date].[OrderNumber] AS [OrderNumber]
+    FROM [dbo].[CH05_Orders_By_Customer_And_Date] AS [CH05_Orders_By_Customer_And_Date]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH05_Shipping_Days_Analysis" EntityType="Self.CH05_Shipping_Days_Analysis" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH05_Shipping_Days_Analysis].[OrderNumber] AS [OrderNumber], 
+    [CH05_Shipping_Days_Analysis].[OrderDate] AS [OrderDate], 
+    [CH05_Shipping_Days_Analysis].[ShipDate] AS [ShipDate], 
+    [CH05_Shipping_Days_Analysis].[DaysElapsed] AS [DaysElapsed]
+    FROM [dbo].[CH05_Shipping_Days_Analysis] AS [CH05_Shipping_Days_Analysis]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH06_Orders_for_Customer_1001" EntityType="Self.CH06_Orders_for_Customer_1001" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH06_Orders_for_Customer_1001].[OrderNumber] AS [OrderNumber], 
+    [CH06_Orders_for_Customer_1001].[CustomerID] AS [CustomerID]
+    FROM [dbo].[CH06_Orders_for_Customer_1001] AS [CH06_Orders_for_Customer_1001]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH08_Orders_With_Products" EntityType="Self.CH08_Orders_With_Products" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH08_Orders_With_Products].[OrderNo] AS [OrderNo], 
+    [CH08_Orders_With_Products].[OrderDate] AS [OrderDate], 
+    [CH08_Orders_With_Products].[ProductNo] AS [ProductNo], 
+    [CH08_Orders_With_Products].[Product] AS [Product], 
+    [CH08_Orders_With_Products].[Price] AS [Price], 
+    [CH08_Orders_With_Products].[Qty] AS [Qty], 
+    [CH08_Orders_With_Products].[AmountOwed] AS [AmountOwed]
+    FROM [dbo].[CH08_Orders_With_Products] AS [CH08_Orders_With_Products]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH09_All_Products_Any_Order_Dates" EntityType="Self.CH09_All_Products_Any_Order_Dates" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH09_All_Products_Any_Order_Dates].[ProductNumber] AS [ProductNumber], 
+    [CH09_All_Products_Any_Order_Dates].[ProductName] AS [ProductName], 
+    [CH09_All_Products_Any_Order_Dates].[OrderDate] AS [OrderDate]
+    FROM [dbo].[CH09_All_Products_Any_Order_Dates] AS [CH09_All_Products_Any_Order_Dates]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH09_Customers_No_Helmets" EntityType="Self.CH09_Customers_No_Helmets" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH09_Customers_No_Helmets].[CustomerID] AS [CustomerID], 
+    [CH09_Customers_No_Helmets].[CustFirstName] AS [CustFirstName], 
+    [CH09_Customers_No_Helmets].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH09_Customers_No_Helmets] AS [CH09_Customers_No_Helmets]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH09_Customers_No_Rep_Same_Zip" EntityType="Self.CH09_Customers_No_Rep_Same_Zip" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH09_Customers_No_Rep_Same_Zip].[CustomerID] AS [CustomerID], 
+    [CH09_Customers_No_Rep_Same_Zip].[CustFirstName] AS [CustFirstName], 
+    [CH09_Customers_No_Rep_Same_Zip].[CustLastName] AS [CustLastName], 
+    [CH09_Customers_No_Rep_Same_Zip].[CustZipCode] AS [CustZipCode]
+    FROM [dbo].[CH09_Customers_No_Rep_Same_Zip] AS [CH09_Customers_No_Rep_Same_Zip]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH09_Products_Never_Ordered" EntityType="Self.CH09_Products_Never_Ordered" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH09_Products_Never_Ordered].[ProductNumber] AS [ProductNumber], 
+    [CH09_Products_Never_Ordered].[ProductName] AS [ProductName]
+    FROM [dbo].[CH09_Products_Never_Ordered] AS [CH09_Products_Never_Ordered]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH10_Customer_Helmets_Vendor_Helmets" EntityType="Self.CH10_Customer_Helmets_Vendor_Helmets" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH10_Customer_Helmets_Vendor_Helmets].[FullName] AS [FullName], 
+    [CH10_Customer_Helmets_Vendor_Helmets].[ProductName] AS [ProductName], 
+    [CH10_Customer_Helmets_Vendor_Helmets].[RowID] AS [RowID]
+    FROM [dbo].[CH10_Customer_Helmets_Vendor_Helmets] AS [CH10_Customer_Helmets_Vendor_Helmets]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets" EntityType="Self.CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets].[CustFirstName] AS [CustFirstName], 
+    [CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets].[CustLastName] AS [CustLastName], 
+    [CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets].[ProdType] AS [ProdType]
+    FROM [dbo].[CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets] AS [CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH11_Customers_Clothing_OR_Accessories" EntityType="Self.CH11_Customers_Clothing_OR_Accessories" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH11_Customers_Clothing_OR_Accessories].[CustomerID] AS [CustomerID], 
+    [CH11_Customers_Clothing_OR_Accessories].[CustFirstName] AS [CustFirstName], 
+    [CH11_Customers_Clothing_OR_Accessories].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH11_Customers_Clothing_OR_Accessories] AS [CH11_Customers_Clothing_OR_Accessories]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH11_Customers_Clothing_OR_Accessories_EXISTS" EntityType="Self.CH11_Customers_Clothing_OR_Accessories_EXISTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH11_Customers_Clothing_OR_Accessories_EXISTS].[CustomerID] AS [CustomerID], 
+    [CH11_Customers_Clothing_OR_Accessories_EXISTS].[CustFirstName] AS [CustFirstName], 
+    [CH11_Customers_Clothing_OR_Accessories_EXISTS].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH11_Customers_Clothing_OR_Accessories_EXISTS] AS [CH11_Customers_Clothing_OR_Accessories_EXISTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH11_Customers_Clothing_OR_Accessories_IN" EntityType="Self.CH11_Customers_Clothing_OR_Accessories_IN" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH11_Customers_Clothing_OR_Accessories_IN].[CustomerID] AS [CustomerID], 
+    [CH11_Customers_Clothing_OR_Accessories_IN].[CustFirstName] AS [CustFirstName], 
+    [CH11_Customers_Clothing_OR_Accessories_IN].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH11_Customers_Clothing_OR_Accessories_IN] AS [CH11_Customers_Clothing_OR_Accessories_IN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH11_Customers_Ordered_Bikes_EXISTS" EntityType="Self.CH11_Customers_Ordered_Bikes_EXISTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH11_Customers_Ordered_Bikes_EXISTS].[CustomerID] AS [CustomerID], 
+    [CH11_Customers_Ordered_Bikes_EXISTS].[CustFirstName] AS [CustFirstName], 
+    [CH11_Customers_Ordered_Bikes_EXISTS].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH11_Customers_Ordered_Bikes_EXISTS] AS [CH11_Customers_Ordered_Bikes_EXISTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH11_Customers_Ordered_Bikes_IN" EntityType="Self.CH11_Customers_Ordered_Bikes_IN" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH11_Customers_Ordered_Bikes_IN].[CustomerID] AS [CustomerID], 
+    [CH11_Customers_Ordered_Bikes_IN].[CustFirstName] AS [CustFirstName], 
+    [CH11_Customers_Ordered_Bikes_IN].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH11_Customers_Ordered_Bikes_IN] AS [CH11_Customers_Ordered_Bikes_IN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH11_Customers_Ordered_Bikes_JOIN" EntityType="Self.CH11_Customers_Ordered_Bikes_JOIN" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH11_Customers_Ordered_Bikes_JOIN].[CustomerID] AS [CustomerID], 
+    [CH11_Customers_Ordered_Bikes_JOIN].[CustFirstName] AS [CustFirstName], 
+    [CH11_Customers_Ordered_Bikes_JOIN].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH11_Customers_Ordered_Bikes_JOIN] AS [CH11_Customers_Ordered_Bikes_JOIN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH11_Products_Last_Date" EntityType="Self.CH11_Products_Last_Date" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH11_Products_Last_Date].[ProductNumber] AS [ProductNumber], 
+    [CH11_Products_Last_Date].[ProductName] AS [ProductName], 
+    [CH11_Products_Last_Date].[LastOrder] AS [LastOrder]
+    FROM [dbo].[CH11_Products_Last_Date] AS [CH11_Products_Last_Date]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH12_Quoted_Price_vs_Average_Retail_Price" EntityType="Self.CH12_Quoted_Price_vs_Average_Retail_Price" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH12_Quoted_Price_vs_Average_Retail_Price].[ProductName] AS [ProductName], 
+    [CH12_Quoted_Price_vs_Average_Retail_Price].[ProductNumber] AS [ProductNumber]
+    FROM [dbo].[CH12_Quoted_Price_vs_Average_Retail_Price] AS [CH12_Quoted_Price_vs_Average_Retail_Price]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Cust_Bikes_And_Helmets_EXISTS" EntityType="Self.CH18_Cust_Bikes_And_Helmets_EXISTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Cust_Bikes_And_Helmets_EXISTS].[CustomerID] AS [CustomerID], 
+    [CH18_Cust_Bikes_And_Helmets_EXISTS].[CustFirstName] AS [CustFirstName], 
+    [CH18_Cust_Bikes_And_Helmets_EXISTS].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH18_Cust_Bikes_And_Helmets_EXISTS] AS [CH18_Cust_Bikes_And_Helmets_EXISTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Cust_Bikes_No_Helmets_EXISTS" EntityType="Self.CH18_Cust_Bikes_No_Helmets_EXISTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Cust_Bikes_No_Helmets_EXISTS].[CustomerID] AS [CustomerID], 
+    [CH18_Cust_Bikes_No_Helmets_EXISTS].[CustFirstName] AS [CustFirstName], 
+    [CH18_Cust_Bikes_No_Helmets_EXISTS].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH18_Cust_Bikes_No_Helmets_EXISTS] AS [CH18_Cust_Bikes_No_Helmets_EXISTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Customer_Bikes_No_Helmets" EntityType="Self.CH18_Customer_Bikes_No_Helmets" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Customer_Bikes_No_Helmets].[CustomerID] AS [CustomerID], 
+    [CH18_Customer_Bikes_No_Helmets].[CustFirstName] AS [CustFirstName], 
+    [CH18_Customer_Bikes_No_Helmets].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH18_Customer_Bikes_No_Helmets] AS [CH18_Customer_Bikes_No_Helmets]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Customers_Bikes_And_Helmets_Same_Order" EntityType="Self.CH18_Customers_Bikes_And_Helmets_Same_Order" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Customers_Bikes_And_Helmets_Same_Order].[CustomerID] AS [CustomerID], 
+    [CH18_Customers_Bikes_And_Helmets_Same_Order].[CustFirstName] AS [CustFirstName], 
+    [CH18_Customers_Bikes_And_Helmets_Same_Order].[CustLastName] AS [CustLastName], 
+    [CH18_Customers_Bikes_And_Helmets_Same_Order].[OrderNumber] AS [OrderNumber], 
+    [CH18_Customers_Bikes_And_Helmets_Same_Order].[OrderDate] AS [OrderDate]
+    FROM [dbo].[CH18_Customers_Bikes_And_Helmets_Same_Order] AS [CH18_Customers_Bikes_And_Helmets_Same_Order]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Customers_No_Orders_JOIN" EntityType="Self.CH18_Customers_No_Orders_JOIN" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Customers_No_Orders_JOIN].[CustomerID] AS [CustomerID], 
+    [CH18_Customers_No_Orders_JOIN].[CustFirstName] AS [CustFirstName], 
+    [CH18_Customers_No_Orders_JOIN].[CustLastName] AS [CustLastName], 
+    [CH18_Customers_No_Orders_JOIN].[CustStreetAddress] AS [CustStreetAddress], 
+    [CH18_Customers_No_Orders_JOIN].[CustCity] AS [CustCity], 
+    [CH18_Customers_No_Orders_JOIN].[CustState] AS [CustState]
+    FROM [dbo].[CH18_Customers_No_Orders_JOIN] AS [CH18_Customers_No_Orders_JOIN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Customers_No_Orders_NOT_IN" EntityType="Self.CH18_Customers_No_Orders_NOT_IN" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Customers_No_Orders_NOT_IN].[CustomerID] AS [CustomerID], 
+    [CH18_Customers_No_Orders_NOT_IN].[CustFirstName] AS [CustFirstName], 
+    [CH18_Customers_No_Orders_NOT_IN].[CustLastName] AS [CustLastName], 
+    [CH18_Customers_No_Orders_NOT_IN].[CustStreetAddress] AS [CustStreetAddress], 
+    [CH18_Customers_No_Orders_NOT_IN].[CustCity] AS [CustCity], 
+    [CH18_Customers_No_Orders_NOT_IN].[CustState] AS [CustState]
+    FROM [dbo].[CH18_Customers_No_Orders_NOT_IN] AS [CH18_Customers_No_Orders_NOT_IN]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1" EntityType="Self.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1].[CustomerID] AS [CustomerID], 
+    [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1].[CustFirstName] AS [CustFirstName], 
+    [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1] AS [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2" EntityType="Self.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2].[CustomerID] AS [CustomerID], 
+    [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2].[CustFirstName] AS [CustFirstName], 
+    [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2].[CustLastName] AS [CustLastName]
+    FROM [dbo].[CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2] AS [CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Orders_Bikes_No_Helmet_EXISTS" EntityType="Self.CH18_Orders_Bikes_No_Helmet_EXISTS" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Orders_Bikes_No_Helmet_EXISTS].[CustomerID] AS [CustomerID], 
+    [CH18_Orders_Bikes_No_Helmet_EXISTS].[CustFirstName] AS [CustFirstName], 
+    [CH18_Orders_Bikes_No_Helmet_EXISTS].[CustLastName] AS [CustLastName], 
+    [CH18_Orders_Bikes_No_Helmet_EXISTS].[OrderNumber] AS [OrderNumber], 
+    [CH18_Orders_Bikes_No_Helmet_EXISTS].[OrderDate] AS [OrderDate]
+    FROM [dbo].[CH18_Orders_Bikes_No_Helmet_EXISTS] AS [CH18_Orders_Bikes_No_Helmet_EXISTS]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH18_Vendors_Accessories_CarRacks_Clothing" EntityType="Self.CH18_Vendors_Accessories_CarRacks_Clothing" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH18_Vendors_Accessories_CarRacks_Clothing].[VendorID] AS [VendorID], 
+    [CH18_Vendors_Accessories_CarRacks_Clothing].[VendName] AS [VendName]
+    FROM [dbo].[CH18_Vendors_Accessories_CarRacks_Clothing] AS [CH18_Vendors_Accessories_CarRacks_Clothing]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH19_Customers_Ordered_FirstWeek_Dec2012" EntityType="Self.CH19_Customers_Ordered_FirstWeek_Dec2012" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH19_Customers_Ordered_FirstWeek_Dec2012].[CustomerID] AS [CustomerID], 
+    [CH19_Customers_Ordered_FirstWeek_Dec2012].[CustFirstName] AS [CustFirstName], 
+    [CH19_Customers_Ordered_FirstWeek_Dec2012].[CustLastName] AS [CustLastName], 
+    [CH19_Customers_Ordered_FirstWeek_Dec2012].[OrderedFirstWeekDec2012] AS [OrderedFirstWeekDec2012]
+    FROM [dbo].[CH19_Customers_Ordered_FirstWeek_Dec2012] AS [CH19_Customers_Ordered_FirstWeek_Dec2012]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH19_Customers_State_Names" EntityType="Self.CH19_Customers_State_Names" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH19_Customers_State_Names].[CustFirstName] AS [CustFirstName], 
+    [CH19_Customers_State_Names].[CustLastName] AS [CustLastName], 
+    [CH19_Customers_State_Names].[CustStateName] AS [CustStateName]
+    FROM [dbo].[CH19_Customers_State_Names] AS [CH19_Customers_State_Names]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH19_Employee_Age_Feb152014" EntityType="Self.CH19_Employee_Age_Feb152014" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH19_Employee_Age_Feb152014].[EmployeeID] AS [EmployeeID], 
+    [CH19_Employee_Age_Feb152014].[EmpFirstName] AS [EmpFirstName], 
+    [CH19_Employee_Age_Feb152014].[EmpLastName] AS [EmpLastName], 
+    [CH19_Employee_Age_Feb152014].[EmpAge] AS [EmpAge]
+    FROM [dbo].[CH19_Employee_Age_Feb152014] AS [CH19_Employee_Age_Feb152014]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH19_Products_And_SalesQuality" EntityType="Self.CH19_Products_And_SalesQuality" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH19_Products_And_SalesQuality].[ProductNumber] AS [ProductNumber], 
+    [CH19_Products_And_SalesQuality].[ProductName] AS [ProductName], 
+    [CH19_Products_And_SalesQuality].[SalesQuality] AS [SalesQuality]
+    FROM [dbo].[CH19_Products_And_SalesQuality] AS [CH19_Products_And_SalesQuality]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH19_Products_Ordered_Dec_2012" EntityType="Self.CH19_Products_Ordered_Dec_2012" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH19_Products_Ordered_Dec_2012].[ProductNumber] AS [ProductNumber], 
+    [CH19_Products_Ordered_Dec_2012].[ProductName] AS [ProductName], 
+    [CH19_Products_Ordered_Dec_2012].[ProductOrdered] AS [ProductOrdered]
+    FROM [dbo].[CH19_Products_Ordered_Dec_2012] AS [CH19_Products_Ordered_Dec_2012]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH20_Customer_All_Products_PurchasedStatus" EntityType="Self.CH20_Customer_All_Products_PurchasedStatus" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH20_Customer_All_Products_PurchasedStatus].[CustomerID] AS [CustomerID], 
+    [CH20_Customer_All_Products_PurchasedStatus].[CustFirstName] AS [CustFirstName], 
+    [CH20_Customer_All_Products_PurchasedStatus].[CustLastName] AS [CustLastName], 
+    [CH20_Customer_All_Products_PurchasedStatus].[CustStreetAddress] AS [CustStreetAddress], 
+    [CH20_Customer_All_Products_PurchasedStatus].[CustCity] AS [CustCity], 
+    [CH20_Customer_All_Products_PurchasedStatus].[CustState] AS [CustState], 
+    [CH20_Customer_All_Products_PurchasedStatus].[CustZipCode] AS [CustZipCode], 
+    [CH20_Customer_All_Products_PurchasedStatus].[CategoryDescription] AS [CategoryDescription], 
+    [CH20_Customer_All_Products_PurchasedStatus].[ProductNumber] AS [ProductNumber], 
+    [CH20_Customer_All_Products_PurchasedStatus].[ProductName] AS [ProductName], 
+    [CH20_Customer_All_Products_PurchasedStatus].[RetailPrice] AS [RetailPrice], 
+    [CH20_Customer_All_Products_PurchasedStatus].[ProductOrdered] AS [ProductOrdered]
+    FROM [dbo].[CH20_Customer_All_Products_PurchasedStatus] AS [CH20_Customer_All_Products_PurchasedStatus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH20_Customer_Catalog" EntityType="Self.CH20_Customer_Catalog" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH20_Customer_Catalog].[CustomerID] AS [CustomerID], 
+    [CH20_Customer_Catalog].[CustFirstName] AS [CustFirstName], 
+    [CH20_Customer_Catalog].[CustLastName] AS [CustLastName], 
+    [CH20_Customer_Catalog].[CustStreetAddress] AS [CustStreetAddress], 
+    [CH20_Customer_Catalog].[CustCity] AS [CustCity], 
+    [CH20_Customer_Catalog].[CustState] AS [CustState], 
+    [CH20_Customer_Catalog].[CustZipCode] AS [CustZipCode], 
+    [CH20_Customer_Catalog].[CategoryDescription] AS [CategoryDescription], 
+    [CH20_Customer_Catalog].[ProductNumber] AS [ProductNumber], 
+    [CH20_Customer_Catalog].[ProductName] AS [ProductName], 
+    [CH20_Customer_Catalog].[RetailPrice] AS [RetailPrice]
+    FROM [dbo].[CH20_Customer_Catalog] AS [CH20_Customer_Catalog]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH20_Employees_Same_State_Customers" EntityType="Self.CH20_Employees_Same_State_Customers" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH20_Employees_Same_State_Customers].[EmpFirstName] AS [EmpFirstName], 
+    [CH20_Employees_Same_State_Customers].[EmpLastName] AS [EmpLastName], 
+    [CH20_Employees_Same_State_Customers].[CustFirstName] AS [CustFirstName], 
+    [CH20_Employees_Same_State_Customers].[CustLastName] AS [CustLastName], 
+    [CH20_Employees_Same_State_Customers].[CustAreaCode] AS [CustAreaCode], 
+    [CH20_Employees_Same_State_Customers].[CustPhoneNumber] AS [CustPhoneNumber], 
+    [CH20_Employees_Same_State_Customers].[CustStatus] AS [CustStatus]
+    FROM [dbo].[CH20_Employees_Same_State_Customers] AS [CH20_Employees_Same_State_Customers]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH20_Product_Price_Ranges" EntityType="Self.CH20_Product_Price_Ranges" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH20_Product_Price_Ranges].[PriceCategory] AS [PriceCategory], 
+    [CH20_Product_Price_Ranges].[ProductName] AS [ProductName], 
+    [CH20_Product_Price_Ranges].[RetailPrice] AS [RetailPrice]
+    FROM [dbo].[CH20_Product_Price_Ranges] AS [CH20_Product_Price_Ranges]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH20_Product_Sales_All_Months_2012_2013" EntityType="Self.CH20_Product_Sales_All_Months_2012_2013" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH20_Product_Sales_All_Months_2012_2013].[MonthYear] AS [MonthYear], 
+    [CH20_Product_Sales_All_Months_2012_2013].[ProductName] AS [ProductName], 
+    [CH20_Product_Sales_All_Months_2012_2013].[Sales] AS [Sales]
+    FROM [dbo].[CH20_Product_Sales_All_Months_2012_2013] AS [CH20_Product_Sales_All_Months_2012_2013]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH20_Product_Sales_ByMonth" EntityType="Self.CH20_Product_Sales_ByMonth" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH20_Product_Sales_ByMonth].[MonthYear] AS [MonthYear], 
+    [CH20_Product_Sales_ByMonth].[ProductName] AS [ProductName], 
+    [CH20_Product_Sales_ByMonth].[Sales] AS [Sales]
+    FROM [dbo].[CH20_Product_Sales_ByMonth] AS [CH20_Product_Sales_ByMonth]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="CH20_Product_Stock_Labels" EntityType="Self.CH20_Product_Stock_Labels" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [CH20_Product_Stock_Labels].[Sequence] AS [Sequence], 
+    [CH20_Product_Stock_Labels].[ProductNumber] AS [ProductNumber], 
+    [CH20_Product_Stock_Labels].[ProductName] AS [ProductName]
+    FROM [dbo].[CH20_Product_Stock_Labels] AS [CH20_Product_Stock_Labels]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SalesOrderModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CH04_Employee_Information">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="EmpFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="EmpLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="EmpStreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EmpCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="EmpState" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="EmpZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="EmpAreaCode" Type="Int16" />
+          <Property Name="EmpPhoneNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="EmpBirthDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CH05_Adjusted_Wholesale_Prices">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="WholesalePrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NewPrice" Type="Decimal" Precision="23" Scale="6" />
+        </EntityType>
+        <EntityType Name="CH05_Orders_By_Customer_And_Date">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH05_Shipping_Days_Analysis">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+          <Property Name="ShipDate" Type="DateTime" Precision="0" />
+          <Property Name="DaysElapsed" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CH06_Orders_for_Customer_1001">
+          <Key>
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CH08_Orders_With_Products">
+          <Key>
+            <PropertyRef Name="OrderNo" />
+            <PropertyRef Name="ProductNo" />
+          </Key>
+          <Property Name="OrderNo" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+          <Property Name="ProductNo" Type="Int32" Nullable="false" />
+          <Property Name="Product" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Qty" Type="Int16" />
+          <Property Name="AmountOwed" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="CH09_All_Products_Any_Order_Dates">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CH09_Customers_No_Helmets">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH09_Customers_No_Rep_Same_Zip">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH09_Products_Never_Ordered">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH10_Customer_Helmets_Vendor_Helmets">
+          <Key>
+            <PropertyRef Name="RowID" />
+          </Key>
+          <Property Name="FullName" Type="String" MaxLength="52" FixedLength="false" Unicode="true" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RowID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets">
+          <Key>
+            <PropertyRef Name="ProdType" />
+          </Key>
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="ProdType" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH11_Customers_Clothing_OR_Accessories">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH11_Customers_Clothing_OR_Accessories_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH11_Customers_Clothing_OR_Accessories_IN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH11_Customers_Ordered_Bikes_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH11_Customers_Ordered_Bikes_IN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH11_Customers_Ordered_Bikes_JOIN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH11_Products_Last_Date">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastOrder" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CH12_Quoted_Price_vs_Average_Retail_Price">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH18_Cust_Bikes_And_Helmets_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH18_Cust_Bikes_No_Helmets_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH18_Customer_Bikes_No_Helmets">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH18_Customers_Bikes_And_Helmets_Same_Order">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CH18_Customers_No_Orders_JOIN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustStreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustState" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH18_Customers_No_Orders_NOT_IN">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustStreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustState" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH18_Orders_Bikes_No_Helmet_EXISTS">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="OrderNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="OrderNumber" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="CH18_Vendors_Accessories_CarRacks_Clothing">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="Int32" Nullable="false" />
+          <Property Name="VendName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="CH19_Customers_Ordered_FirstWeek_Dec2012">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="OrderedFirstWeekDec2012" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="OrderedFirstWeekDec2012" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH19_Customers_State_Names">
+          <Key>
+            <PropertyRef Name="CustStateName" />
+          </Key>
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustStateName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH19_Employee_Age_Feb152014">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="EmpFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="EmpLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="EmpAge" Type="Int32" />
+        </EntityType>
+        <EntityType Name="CH19_Products_And_SalesQuality">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+            <PropertyRef Name="SalesQuality" />
+          </Key>
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalesQuality" Type="String" MaxLength="9" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH19_Products_Ordered_Dec_2012">
+          <Key>
+            <PropertyRef Name="ProductNumber" />
+            <PropertyRef Name="ProductOrdered" />
+          </Key>
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductOrdered" Type="String" MaxLength="11" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH20_Customer_All_Products_PurchasedStatus">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ProductNumber" />
+            <PropertyRef Name="ProductOrdered" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustStreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustState" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CustZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RetailPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ProductOrdered" Type="String" MaxLength="19" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH20_Customer_Catalog">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="CustomerID" Type="Int32" Nullable="false" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustStreetAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustCity" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="CustState" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="CustZipCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryDescription" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RetailPrice" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="CH20_Employees_Same_State_Customers">
+          <Key>
+            <PropertyRef Name="CustStatus" />
+          </Key>
+          <Property Name="EmpFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="EmpLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustFirstName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustLastName" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="CustAreaCode" Type="Int16" />
+          <Property Name="CustPhoneNumber" Type="String" MaxLength="8" FixedLength="false" Unicode="true" />
+          <Property Name="CustStatus" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CH20_Product_Price_Ranges">
+          <Key>
+            <PropertyRef Name="PriceCategory" />
+          </Key>
+          <Property Name="PriceCategory" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RetailPrice" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="CH20_Product_Sales_All_Months_2012_2013">
+          <Key>
+            <PropertyRef Name="MonthYear" />
+          </Key>
+          <Property Name="MonthYear" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sales" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="CH20_Product_Sales_ByMonth">
+          <Key>
+            <PropertyRef Name="MonthYear" />
+          </Key>
+          <Property Name="MonthYear" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sales" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="CH20_Product_Stock_Labels">
+          <Key>
+            <PropertyRef Name="Sequence" />
+            <PropertyRef Name="ProductNumber" />
+          </Key>
+          <Property Name="Sequence" Type="Int32" Nullable="false" />
+          <Property Name="ProductNumber" Type="Int32" Nullable="false" />
+          <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="SalesOrderEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CH04_Employee_Information" EntityType="Self.CH04_Employee_Information" />
+          <EntitySet Name="CH05_Adjusted_Wholesale_Prices" EntityType="Self.CH05_Adjusted_Wholesale_Prices" />
+          <EntitySet Name="CH05_Orders_By_Customer_And_Date" EntityType="Self.CH05_Orders_By_Customer_And_Date" />
+          <EntitySet Name="CH05_Shipping_Days_Analysis" EntityType="Self.CH05_Shipping_Days_Analysis" />
+          <EntitySet Name="CH06_Orders_for_Customer_1001" EntityType="Self.CH06_Orders_for_Customer_1001" />
+          <EntitySet Name="CH08_Orders_With_Products" EntityType="Self.CH08_Orders_With_Products" />
+          <EntitySet Name="CH09_All_Products_Any_Order_Dates" EntityType="Self.CH09_All_Products_Any_Order_Dates" />
+          <EntitySet Name="CH09_Customers_No_Helmets" EntityType="Self.CH09_Customers_No_Helmets" />
+          <EntitySet Name="CH09_Customers_No_Rep_Same_Zip" EntityType="Self.CH09_Customers_No_Rep_Same_Zip" />
+          <EntitySet Name="CH09_Products_Never_Ordered" EntityType="Self.CH09_Products_Never_Ordered" />
+          <EntitySet Name="CH10_Customer_Helmets_Vendor_Helmets" EntityType="Self.CH10_Customer_Helmets_Vendor_Helmets" />
+          <EntitySet Name="CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets" EntityType="Self.CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets" />
+          <EntitySet Name="CH11_Customers_Clothing_OR_Accessories" EntityType="Self.CH11_Customers_Clothing_OR_Accessories" />
+          <EntitySet Name="CH11_Customers_Clothing_OR_Accessories_EXISTS" EntityType="Self.CH11_Customers_Clothing_OR_Accessories_EXISTS" />
+          <EntitySet Name="CH11_Customers_Clothing_OR_Accessories_IN" EntityType="Self.CH11_Customers_Clothing_OR_Accessories_IN" />
+          <EntitySet Name="CH11_Customers_Ordered_Bikes_EXISTS" EntityType="Self.CH11_Customers_Ordered_Bikes_EXISTS" />
+          <EntitySet Name="CH11_Customers_Ordered_Bikes_IN" EntityType="Self.CH11_Customers_Ordered_Bikes_IN" />
+          <EntitySet Name="CH11_Customers_Ordered_Bikes_JOIN" EntityType="Self.CH11_Customers_Ordered_Bikes_JOIN" />
+          <EntitySet Name="CH11_Products_Last_Date" EntityType="Self.CH11_Products_Last_Date" />
+          <EntitySet Name="CH12_Quoted_Price_vs_Average_Retail_Price" EntityType="Self.CH12_Quoted_Price_vs_Average_Retail_Price" />
+          <EntitySet Name="CH18_Cust_Bikes_And_Helmets_EXISTS" EntityType="Self.CH18_Cust_Bikes_And_Helmets_EXISTS" />
+          <EntitySet Name="CH18_Cust_Bikes_No_Helmets_EXISTS" EntityType="Self.CH18_Cust_Bikes_No_Helmets_EXISTS" />
+          <EntitySet Name="CH18_Customer_Bikes_No_Helmets" EntityType="Self.CH18_Customer_Bikes_No_Helmets" />
+          <EntitySet Name="CH18_Customers_Bikes_And_Helmets_Same_Order" EntityType="Self.CH18_Customers_Bikes_And_Helmets_Same_Order" />
+          <EntitySet Name="CH18_Customers_No_Orders_JOIN" EntityType="Self.CH18_Customers_No_Orders_JOIN" />
+          <EntitySet Name="CH18_Customers_No_Orders_NOT_IN" EntityType="Self.CH18_Customers_No_Orders_NOT_IN" />
+          <EntitySet Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1" EntityType="Self.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1" />
+          <EntitySet Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2" EntityType="Self.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2" />
+          <EntitySet Name="CH18_Orders_Bikes_No_Helmet_EXISTS" EntityType="Self.CH18_Orders_Bikes_No_Helmet_EXISTS" />
+          <EntitySet Name="CH18_Vendors_Accessories_CarRacks_Clothing" EntityType="Self.CH18_Vendors_Accessories_CarRacks_Clothing" />
+          <EntitySet Name="CH19_Customers_Ordered_FirstWeek_Dec2012" EntityType="Self.CH19_Customers_Ordered_FirstWeek_Dec2012" />
+          <EntitySet Name="CH19_Customers_State_Names" EntityType="Self.CH19_Customers_State_Names" />
+          <EntitySet Name="CH19_Employee_Age_Feb152014" EntityType="Self.CH19_Employee_Age_Feb152014" />
+          <EntitySet Name="CH19_Products_And_SalesQuality" EntityType="Self.CH19_Products_And_SalesQuality" />
+          <EntitySet Name="CH19_Products_Ordered_Dec_2012" EntityType="Self.CH19_Products_Ordered_Dec_2012" />
+          <EntitySet Name="CH20_Customer_All_Products_PurchasedStatus" EntityType="Self.CH20_Customer_All_Products_PurchasedStatus" />
+          <EntitySet Name="CH20_Customer_Catalog" EntityType="Self.CH20_Customer_Catalog" />
+          <EntitySet Name="CH20_Employees_Same_State_Customers" EntityType="Self.CH20_Employees_Same_State_Customers" />
+          <EntitySet Name="CH20_Product_Price_Ranges" EntityType="Self.CH20_Product_Price_Ranges" />
+          <EntitySet Name="CH20_Product_Sales_All_Months_2012_2013" EntityType="Self.CH20_Product_Sales_All_Months_2012_2013" />
+          <EntitySet Name="CH20_Product_Sales_ByMonth" EntityType="Self.CH20_Product_Sales_ByMonth" />
+          <EntitySet Name="CH20_Product_Stock_Labels" EntityType="Self.CH20_Product_Stock_Labels" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SalesOrderModelStoreContainer" CdmEntityContainer="SalesOrderEntities">
+          <EntitySetMapping Name="CH04_Employee_Information">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH04_Employee_Information">
+              <MappingFragment StoreEntitySet="CH04_Employee_Information">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmpFirstName" ColumnName="EmpFirstName" />
+                <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
+                <ScalarProperty Name="EmpStreetAddress" ColumnName="EmpStreetAddress" />
+                <ScalarProperty Name="EmpCity" ColumnName="EmpCity" />
+                <ScalarProperty Name="EmpState" ColumnName="EmpState" />
+                <ScalarProperty Name="EmpZipCode" ColumnName="EmpZipCode" />
+                <ScalarProperty Name="EmpAreaCode" ColumnName="EmpAreaCode" />
+                <ScalarProperty Name="EmpPhoneNumber" ColumnName="EmpPhoneNumber" />
+                <ScalarProperty Name="EmpBirthDate" ColumnName="EmpBirthDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH05_Adjusted_Wholesale_Prices">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH05_Adjusted_Wholesale_Prices">
+              <MappingFragment StoreEntitySet="CH05_Adjusted_Wholesale_Prices">
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="WholesalePrice" ColumnName="WholesalePrice" />
+                <ScalarProperty Name="NewPrice" ColumnName="NewPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH05_Orders_By_Customer_And_Date">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH05_Orders_By_Customer_And_Date">
+              <MappingFragment StoreEntitySet="CH05_Orders_By_Customer_And_Date">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH05_Shipping_Days_Analysis">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH05_Shipping_Days_Analysis">
+              <MappingFragment StoreEntitySet="CH05_Shipping_Days_Analysis">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ShipDate" ColumnName="ShipDate" />
+                <ScalarProperty Name="DaysElapsed" ColumnName="DaysElapsed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH06_Orders_for_Customer_1001">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH06_Orders_for_Customer_1001">
+              <MappingFragment StoreEntitySet="CH06_Orders_for_Customer_1001">
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH08_Orders_With_Products">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH08_Orders_With_Products">
+              <MappingFragment StoreEntitySet="CH08_Orders_With_Products">
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="AmountOwed" ColumnName="AmountOwed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH09_All_Products_Any_Order_Dates">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH09_All_Products_Any_Order_Dates">
+              <MappingFragment StoreEntitySet="CH09_All_Products_Any_Order_Dates">
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH09_Customers_No_Helmets">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH09_Customers_No_Helmets">
+              <MappingFragment StoreEntitySet="CH09_Customers_No_Helmets">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH09_Customers_No_Rep_Same_Zip">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH09_Customers_No_Rep_Same_Zip">
+              <MappingFragment StoreEntitySet="CH09_Customers_No_Rep_Same_Zip">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="CustZipCode" ColumnName="CustZipCode" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH09_Products_Never_Ordered">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH09_Products_Never_Ordered">
+              <MappingFragment StoreEntitySet="CH09_Products_Never_Ordered">
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH10_Customer_Helmets_Vendor_Helmets">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH10_Customer_Helmets_Vendor_Helmets">
+              <MappingFragment StoreEntitySet="CH10_Customer_Helmets_Vendor_Helmets">
+                <ScalarProperty Name="FullName" ColumnName="FullName" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="RowID" ColumnName="RowID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets">
+              <MappingFragment StoreEntitySet="CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets">
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="ProdType" ColumnName="ProdType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH11_Customers_Clothing_OR_Accessories">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH11_Customers_Clothing_OR_Accessories">
+              <MappingFragment StoreEntitySet="CH11_Customers_Clothing_OR_Accessories">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH11_Customers_Clothing_OR_Accessories_EXISTS">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH11_Customers_Clothing_OR_Accessories_EXISTS">
+              <MappingFragment StoreEntitySet="CH11_Customers_Clothing_OR_Accessories_EXISTS">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH11_Customers_Clothing_OR_Accessories_IN">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH11_Customers_Clothing_OR_Accessories_IN">
+              <MappingFragment StoreEntitySet="CH11_Customers_Clothing_OR_Accessories_IN">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH11_Customers_Ordered_Bikes_EXISTS">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH11_Customers_Ordered_Bikes_EXISTS">
+              <MappingFragment StoreEntitySet="CH11_Customers_Ordered_Bikes_EXISTS">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH11_Customers_Ordered_Bikes_IN">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH11_Customers_Ordered_Bikes_IN">
+              <MappingFragment StoreEntitySet="CH11_Customers_Ordered_Bikes_IN">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH11_Customers_Ordered_Bikes_JOIN">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH11_Customers_Ordered_Bikes_JOIN">
+              <MappingFragment StoreEntitySet="CH11_Customers_Ordered_Bikes_JOIN">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH11_Products_Last_Date">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH11_Products_Last_Date">
+              <MappingFragment StoreEntitySet="CH11_Products_Last_Date">
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="LastOrder" ColumnName="LastOrder" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH12_Quoted_Price_vs_Average_Retail_Price">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH12_Quoted_Price_vs_Average_Retail_Price">
+              <MappingFragment StoreEntitySet="CH12_Quoted_Price_vs_Average_Retail_Price">
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Cust_Bikes_And_Helmets_EXISTS">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Cust_Bikes_And_Helmets_EXISTS">
+              <MappingFragment StoreEntitySet="CH18_Cust_Bikes_And_Helmets_EXISTS">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Cust_Bikes_No_Helmets_EXISTS">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Cust_Bikes_No_Helmets_EXISTS">
+              <MappingFragment StoreEntitySet="CH18_Cust_Bikes_No_Helmets_EXISTS">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Customer_Bikes_No_Helmets">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Customer_Bikes_No_Helmets">
+              <MappingFragment StoreEntitySet="CH18_Customer_Bikes_No_Helmets">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Customers_Bikes_And_Helmets_Same_Order">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Customers_Bikes_And_Helmets_Same_Order">
+              <MappingFragment StoreEntitySet="CH18_Customers_Bikes_And_Helmets_Same_Order">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Customers_No_Orders_JOIN">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Customers_No_Orders_JOIN">
+              <MappingFragment StoreEntitySet="CH18_Customers_No_Orders_JOIN">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="CustStreetAddress" ColumnName="CustStreetAddress" />
+                <ScalarProperty Name="CustCity" ColumnName="CustCity" />
+                <ScalarProperty Name="CustState" ColumnName="CustState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Customers_No_Orders_NOT_IN">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Customers_No_Orders_NOT_IN">
+              <MappingFragment StoreEntitySet="CH18_Customers_No_Orders_NOT_IN">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="CustStreetAddress" ColumnName="CustStreetAddress" />
+                <ScalarProperty Name="CustCity" ColumnName="CustCity" />
+                <ScalarProperty Name="CustState" ColumnName="CustState" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1">
+              <MappingFragment StoreEntitySet="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2">
+              <MappingFragment StoreEntitySet="CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Orders_Bikes_No_Helmet_EXISTS">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Orders_Bikes_No_Helmet_EXISTS">
+              <MappingFragment StoreEntitySet="CH18_Orders_Bikes_No_Helmet_EXISTS">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH18_Vendors_Accessories_CarRacks_Clothing">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH18_Vendors_Accessories_CarRacks_Clothing">
+              <MappingFragment StoreEntitySet="CH18_Vendors_Accessories_CarRacks_Clothing">
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendName" ColumnName="VendName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH19_Customers_Ordered_FirstWeek_Dec2012">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH19_Customers_Ordered_FirstWeek_Dec2012">
+              <MappingFragment StoreEntitySet="CH19_Customers_Ordered_FirstWeek_Dec2012">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="OrderedFirstWeekDec2012" ColumnName="OrderedFirstWeekDec2012" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH19_Customers_State_Names">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH19_Customers_State_Names">
+              <MappingFragment StoreEntitySet="CH19_Customers_State_Names">
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="CustStateName" ColumnName="CustStateName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH19_Employee_Age_Feb152014">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH19_Employee_Age_Feb152014">
+              <MappingFragment StoreEntitySet="CH19_Employee_Age_Feb152014">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmpFirstName" ColumnName="EmpFirstName" />
+                <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
+                <ScalarProperty Name="EmpAge" ColumnName="EmpAge" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH19_Products_And_SalesQuality">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH19_Products_And_SalesQuality">
+              <MappingFragment StoreEntitySet="CH19_Products_And_SalesQuality">
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="SalesQuality" ColumnName="SalesQuality" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH19_Products_Ordered_Dec_2012">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH19_Products_Ordered_Dec_2012">
+              <MappingFragment StoreEntitySet="CH19_Products_Ordered_Dec_2012">
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductOrdered" ColumnName="ProductOrdered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH20_Customer_All_Products_PurchasedStatus">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH20_Customer_All_Products_PurchasedStatus">
+              <MappingFragment StoreEntitySet="CH20_Customer_All_Products_PurchasedStatus">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="CustStreetAddress" ColumnName="CustStreetAddress" />
+                <ScalarProperty Name="CustCity" ColumnName="CustCity" />
+                <ScalarProperty Name="CustState" ColumnName="CustState" />
+                <ScalarProperty Name="CustZipCode" ColumnName="CustZipCode" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+                <ScalarProperty Name="ProductOrdered" ColumnName="ProductOrdered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH20_Customer_Catalog">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH20_Customer_Catalog">
+              <MappingFragment StoreEntitySet="CH20_Customer_Catalog">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="CustStreetAddress" ColumnName="CustStreetAddress" />
+                <ScalarProperty Name="CustCity" ColumnName="CustCity" />
+                <ScalarProperty Name="CustState" ColumnName="CustState" />
+                <ScalarProperty Name="CustZipCode" ColumnName="CustZipCode" />
+                <ScalarProperty Name="CategoryDescription" ColumnName="CategoryDescription" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH20_Employees_Same_State_Customers">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH20_Employees_Same_State_Customers">
+              <MappingFragment StoreEntitySet="CH20_Employees_Same_State_Customers">
+                <ScalarProperty Name="EmpFirstName" ColumnName="EmpFirstName" />
+                <ScalarProperty Name="EmpLastName" ColumnName="EmpLastName" />
+                <ScalarProperty Name="CustFirstName" ColumnName="CustFirstName" />
+                <ScalarProperty Name="CustLastName" ColumnName="CustLastName" />
+                <ScalarProperty Name="CustAreaCode" ColumnName="CustAreaCode" />
+                <ScalarProperty Name="CustPhoneNumber" ColumnName="CustPhoneNumber" />
+                <ScalarProperty Name="CustStatus" ColumnName="CustStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH20_Product_Price_Ranges">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH20_Product_Price_Ranges">
+              <MappingFragment StoreEntitySet="CH20_Product_Price_Ranges">
+                <ScalarProperty Name="PriceCategory" ColumnName="PriceCategory" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH20_Product_Sales_All_Months_2012_2013">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH20_Product_Sales_All_Months_2012_2013">
+              <MappingFragment StoreEntitySet="CH20_Product_Sales_All_Months_2012_2013">
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Sales" ColumnName="Sales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH20_Product_Sales_ByMonth">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH20_Product_Sales_ByMonth">
+              <MappingFragment StoreEntitySet="CH20_Product_Sales_ByMonth">
+                <ScalarProperty Name="MonthYear" ColumnName="MonthYear" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Sales" ColumnName="Sales" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CH20_Product_Stock_Labels">
+            <EntityTypeMapping TypeName="SalesOrderModel.CH20_Product_Stock_Labels">
+              <MappingFragment StoreEntitySet="CH20_Product_Stock_Labels">
+                <ScalarProperty Name="Sequence" ColumnName="Sequence" />
+                <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

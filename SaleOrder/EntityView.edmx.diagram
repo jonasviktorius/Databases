@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7aa906cbd45441c7965fb34e947fe64f" Name="Diagram1">
+        <EntityTypeShape EntityType="SalesOrderModel.CH04_Employee_Information" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH05_Adjusted_Wholesale_Prices" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH05_Orders_By_Customer_And_Date" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH05_Shipping_Days_Analysis" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH06_Orders_for_Customer_1001" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH08_Orders_With_Products" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH09_All_Products_Any_Order_Dates" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH09_Customers_No_Helmets" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH09_Customers_No_Rep_Same_Zip" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH09_Products_Never_Ordered" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH10_Customer_Helmets_Vendor_Helmets" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH10_Customer_Order_Bikes_UNION_Customer_Order_Helmets" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH11_Customers_Clothing_OR_Accessories" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH11_Customers_Clothing_OR_Accessories_EXISTS" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH11_Customers_Clothing_OR_Accessories_IN" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH11_Customers_Ordered_Bikes_EXISTS" Width="1.5" PointX="8.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH11_Customers_Ordered_Bikes_IN" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH11_Customers_Ordered_Bikes_JOIN" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH11_Products_Last_Date" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH12_Quoted_Price_vs_Average_Retail_Price" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Cust_Bikes_And_Helmets_EXISTS" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Cust_Bikes_No_Helmets_EXISTS" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Customer_Bikes_No_Helmets" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Customers_Bikes_And_Helmets_Same_Order" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Customers_No_Orders_JOIN" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Customers_No_Orders_NOT_IN" Width="1.5" PointX="6.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_1" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Customers_Not_Bikes_Or_Tires_NOTIN_2" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Orders_Bikes_No_Helmet_EXISTS" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH18_Vendors_Accessories_CarRacks_Clothing" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH19_Customers_Ordered_FirstWeek_Dec2012" Width="1.5" PointX="0.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH19_Customers_State_Names" Width="1.5" PointX="2.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH19_Employee_Age_Feb152014" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH19_Products_And_SalesQuality" Width="1.5" PointX="14.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH19_Products_Ordered_Dec_2012" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH20_Customer_All_Products_PurchasedStatus" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH20_Customer_Catalog" Width="1.5" PointX="14.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH20_Employees_Same_State_Customers" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH20_Product_Price_Ranges" Width="1.5" PointX="6.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH20_Product_Sales_All_Months_2012_2013" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH20_Product_Sales_ByMonth" Width="1.5" PointX="10.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SalesOrderModel.CH20_Product_Stock_Labels" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
