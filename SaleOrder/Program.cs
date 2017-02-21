@@ -11,37 +11,69 @@ namespace SaleOrder
     {
         static void Main(string[] args)
         {
-            using (var db = new Entity())
+            int userInput = 0;
+            do
             {
-                //Get all customers id and name
+                userInput = DisplayMenu();
+                if (userInput == 1)
+                {
+                    using (var db = new Entity())
+                    {
+                        //Get all customers id and name
 
-                var query = from c in db.Customers
-                            orderby c.CustFirstName
-                            select c;
+                        var query = from c in db.Customers
+                                    orderby c.CustFirstName
+                                    select c;
 
-                foreach (var custs in query)
-                {
-                    Console.WriteLine("Customer ID: " + custs.CustomerID + "\r\n" + " Name: " + custs.CustFirstName + " " + custs.CustLastName + "\r\n");
+                        foreach (var custs in query)
+                        {
+                            Console.WriteLine("Customer ID: " + custs.CustomerID + "\r\n" + " Name: " + custs.CustFirstName + " " + custs.CustLastName + "\r\n");
+                        }
+                    }
                 }
-            }
-            // Get all employees id and name
-            using (SalesOrderEntities soe = new SalesOrderEntities())
-            {
-                var empInfo = from inf in soe.CH04_Employee_Information
-                    select inf;
-                foreach (var inf in empInfo)
+                else if (userInput == 2)
                 {
-                    Console.WriteLine("Employee ID: " + inf.EmployeeID+ "\r\n" + "Name: " + inf.EmpFirstName + " " + inf.EmpLastName + "\r\n");
+                    using (SalesOrderEntities soe = new SalesOrderEntities())
+                    {
+                        var empInfo = from inf in soe.CH04_Employee_Information
+                            select inf;
+                        foreach (var inf in empInfo)
+                        {
+                            Console.WriteLine("Employee ID: " + inf.EmployeeID + "\r\n" + "Name: " + inf.EmpFirstName +
+                                              " " + inf.EmpLastName + "\r\n");
+                        }
+                    }
                 }
-                // All products any order dates
-                var allProd = from prod in soe.CH09_All_Products_Any_Order_Dates
-                    select prod;
-                foreach (var prod in allProd)
+                else if (userInput == 3)
                 {
-                    Console.WriteLine("Order date: " + prod.OrderDate + "\r\n" + "Product Number: " + prod.ProductNumber + "\r\n" + "Product name: " + prod.ProductName + "\r\n");
+                    // All products any order dates
+                    using (SalesOrderEntities soe = new SalesOrderEntities())
+                    {
+                        var allProd = from prod in soe.CH09_All_Products_Any_Order_Dates
+                            select prod;
+                        foreach (var prod in allProd)
+                        {
+                            Console.WriteLine("Product Number: " +
+                                              prod.ProductNumber + "\r\n" + "Product name: " + prod.ProductName + "\r\n");
+                        }
+                    }
                 }
-            }
+
+            } while (userInput != 4)
+            ;
             Console.ReadLine();
+        }
+
+        static public int DisplayMenu()
+        {
+            Console.WriteLine("Sale/order bicycles");
+            Console.WriteLine();
+            Console.WriteLine("1.  Get all customers ");
+            Console.WriteLine("2.  Get all employees");
+            Console.WriteLine("3.  Get all products");
+            Console.WriteLine("4.  Exit ");
+            var result = Console.ReadLine();
+            return Convert.ToInt32(result);
         }
     }
 }
